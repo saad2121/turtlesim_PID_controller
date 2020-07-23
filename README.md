@@ -40,4 +40,72 @@ cd ~/catkin_ws
 catkin_make
 soure ./devel/setup.bash 
 ```
+**NOTE** - *Make sure all the files in src are executable, if not make it executable (refer a example below)*
+```
+chmod chmod u+x src/turtlesim_cleaner/src/gotogoal.py
+```
 
+Now its time to run the nodes
+- Rotate the turtle on its position
+ ```
+rosrun turtlesim_PID_controller rotate.py
+```
+```
+Let's rotate your robot
+Input your speed (degrees/sec):30
+Type your distance (degrees):90
+Clowkise?: 1
+```
+   ![](https://github.com/saad2121/turtlesim_PID_controller/blob/master/results/rotate.gif)
+ - Translate the turtle by some distance  
+```
+rosrun turtlesim_PID_controller move.py
+```
+```
+Let's move your robot
+Input your speed:2
+Type your distance:4
+Foward?: 1
+
+```
+![](https://github.com/saad2121/turtlesim_PID_controller/blob/master/results/move.gif)
+
+- Moving from start postion to goal position (No goal orientation)
+```
+rosrun turtlesim_PID_controller gotogoal.py
+```
+```
+Set your x goal:4
+Set your y goal:5
+Set your tolerance:0.1
+```
+![](https://github.com/saad2121/turtlesim_PID_controller/blob/master/results/gotogoal.gif)
+
+- Moving from start position and orientation to goal position and orientation (Proportional controller)
+```
+rosrun turtlesim_PID_controller gotogoal_P.py
+```
+```
+Set your x goal:3
+Set your y goal:3
+Set your theta goal:90
+Set your distance tolerance:0.1
+Set your theta tolerance:0.1
+```
+![](https://github.com/saad2121/turtlesim_PID_controller/blob/master/results/gotogoal_P.gif)
+
+- Moving from start position and orientation to goal position and orientation (PID controller)
+
+```
+rosrun turtlesim_PID_controller gotogoal_PID.py
+```
+```Set your x goal:8
+Set your y goal:4
+Set your theta goal:100
+Set your distance tolerance:0.1
+Set your theta tolerance:0.1
+```
+![](https://github.com/saad2121/turtlesim_PID_controller/blob/master/results/gotogoal_PID.gif)
+
+## Refrence 
+[Wiki ROS](http://wiki.ros.org/turtlesim/Tutorials/Moving%20in%20a%20Straight%20Line)
